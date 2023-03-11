@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/jwt
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: cos
+    password: cos1234
+
+
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .mustache
+
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google: # /oauth2/authorization/google ? ??? ???? ??.
+            client-id: 853698725771-1nvkgl9j7sg9sj45h45nkbg90epplsmd
+
+            client-secret: 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
+            scope:
+              - email
+              - profile
